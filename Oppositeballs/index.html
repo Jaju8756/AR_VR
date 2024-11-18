@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Bird with Hand Movements</title>
+
+  <!-- A-Frame Library -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+  <!-- AR.js for markerless AR -->
+  <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.1.0/aframe/build/aframe-ar-nft.js"></script>
+  
+  <!-- Handtrack.js for hand detection -->
+  <script src="https://cdn.jsdelivr.net/npm/handtrackjs@latest/dist/handtrack.min.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    #webcam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- A-Frame Scene -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+
+    <!-- Bird model (we can replace the primitive with a more complex model) -->
+    <a-sphere id="bird" position="0 0 -3" radius="0.3" color="#FF6347"></a-sphere>
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+  <!-- Hidden webcam element for hand detection -->
+  <video id="webcam" autoplay playsinline></video>
+
+  <script src="script.js"></script>
+</body>
+</html>
